@@ -8,20 +8,20 @@
 <body>
     <header class="bg-gradient-to-r from-[#016251] via-[#016251] to-green-900 p-4">
         <div class="flex items-center">
-            <img src="{{ url_for('static', filename='images/download.png') }}" alt="Logo" class="h-32 w-64 ml-24">
+            <img src="{{ url_for('static', filename='images/download.png') }}" alt="Logo" class="w-64 h-32 ml-24">
             <h1 class="text-4xl text-white">Lau Banner</h1>
         </div>
     </header>
     {% for message in get_flashed_messages() %}
     <div class="flash">{{ message }}</div>
     {% endfor %}
-    <div class="h-screen w-full bg-white">
+    <div class="w-full h-screen bg-white">
         
         {% block content %}{% endblock %}
     </div>
 
     <footer class="bg-[#016251] text-white py-4">
-    <div class="container mx-auto flex justify-between items-center">
+    <div class="container flex items-center justify-between mx-auto">
         <p>&copy; 2023 Lebanese American University</p>
         <ul class="flex space-x-4">
             <li><a href="#">Home</a></li>
