@@ -4,6 +4,14 @@ module.exports = {
   content: ["./templates/**/*.{html,htm}"],
   theme: {
     extend: {},
+    fontFamily: {
+      poppins: ['Poppins']
+    }
   },
-  plugins: [],
+
+  plugins: [
+    require('@tailwindcss/forms'),
+  ],
 }
+
+

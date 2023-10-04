@@ -1,35 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+    </style>
     <meta charset="UTF-8">
-    <title>Lau Banner</title>
+    <title>LAU Banner</title>
     <link href="{{url_for('static',filename='css/main.css')}}" rel="stylesheet">
 </head>
+
 <body>
-    <header class="bg-gradient-to-r from-[#016251] via-[#016251] to-green-900 p-4">
-        <div class="flex items-center">
-            <img src="{{ url_for('static', filename='images/LAUlogo.png') }}" alt="Logo" class="w-64 h-32 ml-24">
-            <h1 class="pl-10 text-4xl text-white">Lau Banner</h1>
+    <header class="bg-gradient-to-l from-[#016251] via-[#016251] to-green-900 p-4">
+        <div class="flex items-center justify-between">
+            <h1 class="flex ml-24 text-4xl text-white font-poppins shrink">LAU Banner</h1>
+            <img src="{{ url_for('static', filename='images/LAUlogo.png') }}" alt="Logo" class="flex w-64 h-32 mr-24 ">
+
         </div>
     </header>
     {% for message in get_flashed_messages() %}
     <div class="flash">{{ message }}</div>
     {% endfor %}
     <div class="w-full h-screen bg-white">
-        
+
         {% block content %}{% endblock %}
     </div>
 
-    <footer class="bg-[#016251] text-white py-4">
-    <div class="container flex items-center justify-between mx-auto">
-        <p>&copy; 2023 Lebanese American University</p>
-        <ul class="flex space-x-4">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </div>
-</footer>
+    <footer class="bg-[#016251] text-white py-4 px-24">
+        <div class="container flex items-center justify-between mx-auto">
+            <p>&copy; 2023 Lebanese American University</p>
+            <ul class="flex space-x-4">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </footer>
 </body>
+
 </html>
