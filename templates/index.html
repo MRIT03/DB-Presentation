@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+    </style>
+    <title>{% block title %}LAU Banner{% endblock %}</title>
+    <link href="{{url_for('static',filename='css/main.css')}}" rel="stylesheet">
+</head>
+
+<body>
+    <header class="bg-gradient-to-l from-[#016251] via-[#016251] to-green-900 p-4">
+        <div class="flex items-center justify-between">
+            <h1 class="flex ml-24 text-4xl text-white font-poppins shrink">LAU Banner</h1>
+            <img src="{{ url_for('static', filename='images/LAUlogo.png') }}" alt="Logo" class="flex w-64 h-32 mr-24 ">
+
+        </div>
+    </header>
+    {% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+    {% endfor %}
+    
+        {% block content %}{% endblock %}
+        
+
+    <footer class="z-40 sticky bottom-0 bg-[#016251] text-white py-4 px-24">
+        <div class="container flex items-center justify-between mx-auto">
+            <p>&copy; 2023 Lebanese American University</p>
+            <ul class="flex space-x-4">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </footer>
+    
+</body>
+
+</html>
