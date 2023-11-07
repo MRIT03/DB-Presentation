@@ -26,14 +26,15 @@
         {% block content %}{% endblock %}
         
 
-    <footer class="z-40 sticky bottom-0 bg-[#016251] text-white py-4 px-24">
+    <footer class="fixed bottom-0 left-0 right-0 bg-[#016251] text-white py-4 px-24 z-50 ">
         <div class="container flex items-center justify-between mx-auto">
             <p>&copy; 2023 Lebanese American University</p>
             <ul class="flex space-x-4">
-                <li><a href="#">Home</a></li>
+                <li><a href="{{url_for('home')}}">Home</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Services</a></li>
                 <li><a href="#">Contact</a></li>
+                <li><a class="font-bold ml-8" href="{{url_for('logout')}}">Logout</a></li>
             </ul>
         </div>
     </footer>

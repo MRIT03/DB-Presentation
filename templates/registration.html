@@ -2,32 +2,44 @@
 
 {% block title %}Registration{% endblock %}
 {% block content %}
-<div class=" flex flex-col m-12">
-    <h1 class=" block font-poppins text-4xl mb-12 "> These are the available courses: </h1>
-    <div class=" hidden md:flex pb-4  justify-center  items-center">
-        <table class="px-3  w-full max-h-max table-fixed break-words  place-content-center border-separate md:border-spacing-5 lg:border-spacing-14 font-poppins text-2xl ">
-            <thead>
-                <tr>  
-                    {%for head in headers%}
-                        <th scope="col" class=" md:w-20 lg:w-36 border "> {{head}} </th>
-                    {%endfor%}          
-                </tr>
-            </thead>
-            <tbody class =" text-clip text-center">
-                    {%for row in courses%}
-                    <tr>
-                        {%for cell in row%} 
-                            <td class=" border ">{{cell}}</td>
-                        {%endfor%}
-                        <td class="border"> 
-                            <button class=" bg-[#016251] hover:bg-green-900 text-white font-bold py-2 px-4 rounded-full"> Add </button>
-                        </td>
-                    </tr>
-                    {%endfor%}
-            </tbody>
-            
-        </table>
 
+{% if message is not none %}
+    <body onpageshow = "alert('{{message}}')"></body>
+{% endif %}
+
+
+<div class="min-h-screen flex flex-col p-5">
+    <h1 class="text-4xl font-poppins mt-6 mb-20"> These are the available courses: </h1>
+    <div class="flex flex-col items-center">
+        <div class="hidden md:flex justify-center mb-4">
+            <table class="w-full text-xl font-poppins table-fixed">
+                <thead>
+                    <tr>  
+                        {%for head in headers%}
+                            <th scope="col" class=" w-1/5 md:w-1/5 lg:w-2/5 pb-10"> {{head}} </th>
+                        {%endfor%}          
+                    </tr>
+                </thead>
+                <tbody class ="text-center text-clip">
+                        {%for row in courses%}
+                        <tr>
+                            {%for cell in row%} 
+                                <td class="pb-10" id="{{cell}}">{{cell}}</td>
+                            {%endfor%}
+                            <td class="pb-10" >
+                                <form method="POST" action="/add_course">
+                                    <input type="hidden" name="course_id" value="{{row[0]}}">
+                                    <button  class=" bg-[#016251] hover:bg-green-900 text-white font-bold py-2 px-4 rounded-full" type="submit"> Add </button>
+                                </form> 
+                                
+                            </td>
+                        </tr>
+                        {%endfor%}
+                </tbody>
+                
+            </table>
+
+        </div>
     </div>
     
 
